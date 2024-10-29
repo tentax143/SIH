@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Processing Results</title>
+</head>
+<body>
+    <h1>File Metadata</h1>
+    <ul>
+        {% for key, value in metadata.items() %}
+            <li><strong>{{ key }}:</strong> {{ value }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Band 1 Histogram</h2>
+    <img src="{{ url_for('static', filename='histogram.png') }}" alt="Histogram of Band 1 Pixel Values">
+
+    <h2>Non-zero Pixel Information</h2>
+    <p><strong>Total non-zero pixels:</strong> {{ non_zero_info["Total non-zero pixels"] }}</p>
+    <p><strong>Sample non-zero values:</strong> {{ non_zero_info["Sample non-zero values"] }}</p>
+
+    <a href="/">Upload another file</a>
+</body>
+</html>
